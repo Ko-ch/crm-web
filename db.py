@@ -6,7 +6,7 @@ def init_db():
     conn = sqlite3.connect("crm.sqlite")
     cursor = conn.cursor()
 
-    with open("schema.sql") as f:
+    with open("schema.sql", encoding="utf-8") as f:
         sql = f.read()
 
     cursor.executescript(sql)
