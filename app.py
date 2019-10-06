@@ -11,7 +11,11 @@ app = Flask(__name__)
 
 @app.route("/index")
 def index():
-    return render_template("index.html")
+    customers = [["Bob", 15],
+                 ["Tom", 57],
+                 ["Ken", 73]
+                 ]
+    return render_template("index.html", customers=customers)
 
 
 if __name__ == "__main__":
