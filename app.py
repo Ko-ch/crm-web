@@ -1,20 +1,13 @@
 from flask import Flask, render_template
 
-app = Flask(__name__)
+from db import db
 
-"""
-コーディング内容
-    /index で GET リクエストがきたら
-    index.html というテンプレートをレンダリングする
-"""
+app = Flask(__name__)
 
 
 @app.route("/index")
 def index():
-    customers = [["Bob", 15],
-                 ["Tom", 57],
-                 ["Ken", 73]
-                 ]
+    customers = db()
     return render_template("index.html", customers=customers)
 
 

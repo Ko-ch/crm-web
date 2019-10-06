@@ -16,5 +16,20 @@ def init_db():
     conn.close()
 
 
+def db():
+    conn = sqlite3.connect("crm.sqlite")
+    cursor = conn.cursor()
+
+    sql = """SELECT * FROM customers"""
+
+    results = cursor.execute(sql)
+
+    return results.fetchall()
+
+    conn.commit()
+
+    conn.close()
+
+
 if __name__ == "__main__":
     init_db()
