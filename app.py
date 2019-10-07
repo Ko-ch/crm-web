@@ -11,5 +11,10 @@ def index():
     return render_template("index.html", customers=customers)
 
 
+@app.route("/add")
+def add():
+    customer = addcustomer()
+
+
 if __name__ == "__main__":
     app.run(debug=True)
