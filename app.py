@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 from werkzeug.utils import redirect
 
 from db import db, addcustomer
@@ -20,7 +20,7 @@ def add():
     name = request.form["name"]
     age = request.form["age"]
     addcustomer(name, age)
-    return redirect("/index")
+    return redirect(url_for("index"))
 
 
 if __name__ == "__main__":
