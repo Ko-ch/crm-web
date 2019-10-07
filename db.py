@@ -24,7 +24,22 @@ def db():
 
     results = cursor.execute(sql)
 
-    return results.fetchall()
+    allname = results.fetchall()
+
+    conn.commit()
+
+    conn.close()
+
+    return allname
+
+
+def addcustomer(name, age):
+    conn = sqlite3.connect("crm.sqlite")
+    cursor = conn.cursor()
+
+    sql = f"""INSERT INTO customers VALUES ("{name}", {age})"""
+
+    cursor.execute(sql)
 
     conn.commit()
 
